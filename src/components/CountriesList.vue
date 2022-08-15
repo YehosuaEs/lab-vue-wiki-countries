@@ -1,9 +1,44 @@
 <template>
     <!-- Displays the list of links with the country names. Each link should be a vue-router-dom router-link which we will use to send the country code (alpha3Code) via the URL. -->
+    <!-- Bootstrap container wrapper div -->
+    <div class="container">
+        <!-- Bootstrap row wrapper div -->
+        <div class="row">
+            <!-- Countries List (Bootstrap column) -->
+            <div class="col-5" style="max-height: 90vh; overflow: scroll">
+                <div
+                    class="list-group"
+                    v-for="(item, idx) in this.countries"
+                    :key="idx"
+                >
+                    <a
+                        class="list-group-item list-group-item-action"
+                        href="/AND"
+                    >
+                        <img
+                            src="https://flagpedia.net/data/flags/icon/72x54/{{item.alpha2Code}}.png"
+                        />
+                        <p>{{ item.name.common }}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-export default {};
+import countriesData from "../../public/countries.json";
+export default {
+    name: "CountryList",
+    data() {
+        return {
+            countries: countriesData,
+        };
+    },
+    mounted() {
+        console.log(this.countries[0].alpha2Code);
+    },
+};
 </script>
 
 <style></style>

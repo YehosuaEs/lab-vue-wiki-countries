@@ -1,15 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+
 const routes = [
     {
         path: '/',
         name: 'root',
-        component: () => import(/* webpackChunkName: 'index' */ '../components/Navbar.vue')
+        component: () => import(/* webpackChunkName: 'index' */ '../components/NavBar.vue')
     },
-    // {
-    //     path: '/list',
-    //     name: 'list',
-    //     component: () => import(/* webpackChunkName: 'list' */ './pages/CountriesList.vue'),
+    {
+        path: '/',
+        name: 'root',
+        component: () => import(/* webpackChunkName: 'list' */ '../components/CountriesList.vue')
+    },
+
+
+    // const routes = [
+    //     {
+    //         path: '/',
+    //         name: 'root',
+    //         component: () => import(/* webpackChunkName: 'index' */ '../components/Navbar.vue')
+    //     },
+    //     {
+    //         path: '/list',
+    //         name: 'list',
+    //         component: () => import(/* webpackChunkName: 'list' */ '../components/CountriesList.vue'),
     //     children: [
     //         {
     //             path: '/details',
@@ -18,6 +32,7 @@ const routes = [
     //         },
     //     ]
     // }
+
 ];
 
 const router = createRouter({
