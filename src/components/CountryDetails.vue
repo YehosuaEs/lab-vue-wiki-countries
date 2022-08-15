@@ -71,7 +71,7 @@ export default {
         this.country.map((item) => {
             this.newObj.set(item.alpha3Code, item.name.common);
         });
-        console.log(this.newObj.get("IRN"));
+        // console.log(this.newObj.get("IRN"));
         // console.log(this.$route.params.id);
         // console.log(Object.entries(countryData[0].alpha3Code));
         // console.log(countryData[0].capital[0]);
