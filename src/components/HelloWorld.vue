@@ -25,14 +25,15 @@
     </p>
 </template>
 
-<script setup>
-import { ref } from "vue";
+<script>
+export default {
+    name: "HelloWorld",
+    props: {
+        msg: String,
+    },
+};
 
-defineProps({
-    msg: String,
-});
-
-const count = ref(0);
+const count = 0;
 </script>
 
 <style scoped>
