@@ -32,14 +32,15 @@
                 <tr>
                     <td>Borders</td>
                     <td>
-                        <ul>
-                            <li><a href="/AND">Andorra</a></li>
-                            <li><a href="/BEL">Belgium</a></li>
-                            <li><a href="/DEU">Germany</a></li>
-                            <li><a href="/ITA">Italy</a></li>
-                            <li><a href="/MCO">Monaco</a></li>
-                            <li><a href="/ESP">Spain</a></li>
-                            <li><a href="/CHE">Switzerland</a></li>
+                        <ul
+                            v-for="(countryBorder, idx) in this.item.borders"
+                            :key="idx"
+                        >
+                            <li>
+                                <a :href="`${countryBorder}`">{{
+                                    countryBorder
+                                }}</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -71,7 +72,7 @@ export default {
         //     }
         // },
     },
-    computed() {
+    mounted() {
         // console.log(this.$route.params.id);
         // console.log(Object.entries(countryData[0].alpha3Code));
         // console.log(countryData[0].capital[0]);
@@ -82,6 +83,9 @@ export default {
         //         return (this.name = item.name.common);
         //     }
         // });
+        // this.item.borders.forEach((item) => {});
+        // console.log(this.item);
+        console.log(Object.values(this.item));
     },
 };
 </script>
