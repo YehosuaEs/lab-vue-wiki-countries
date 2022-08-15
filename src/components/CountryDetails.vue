@@ -38,9 +38,14 @@
                         >
                             <li>
                                 <a :href="`${countryBorder}`">{{
-                                    countryBorder
+                                    this.newObj.get(countryBorder)
                                 }}</a>
                             </li>
+                            <!-- <li>
+                                <router-link :to="`${countryBorder}`">{{
+                                    countryBorder
+                                }}</router-link>
+                            </li> -->
                         </ul>
                     </td>
                 </tr>
@@ -59,8 +64,15 @@ export default {
             country: countryData,
 
             item: countryData.filter(
-                (e) => e.alpha3Code === this.$route.params.id
+                (element) => element.alpha3Code === this.$route.params.id
             )[0],
+
+            newObj: new Map(),
+            // countryName: countryData.forEach((item) => {
+            //     if (item.alpha3Code === this.$route.params.id) {
+            //         return (this.name = item.name.common);
+            //     }
+            // }),
         };
     },
     method: {
@@ -73,19 +85,23 @@ export default {
         // },
     },
     mounted() {
+        this.country.map((item) => {
+            this.newObj.set(item.alpha3Code, item.name.common);
+        });
+        console.log(this.newObj.get("IRN"));
         // console.log(this.$route.params.id);
         // console.log(Object.entries(countryData[0].alpha3Code));
         // console.log(countryData[0].capital[0]);
         // console.log(GetCountry());
         // this.country.forEach((item) => {
-        //     if (item.alpha3Code === this.$route.params.id) {
+        //     if (item.alpha3Code === item.borders) {
         //         console.log(item.name.common);
         //         return (this.name = item.name.common);
         //     }
         // });
         // this.item.borders.forEach((item) => {});
         // console.log(this.item);
-        console.log(Object.values(this.item));
+        // console.log(GetCountry());
     },
 };
 </script>
