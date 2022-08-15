@@ -28,14 +28,30 @@
 </template>
 
 <script>
-import countriesData from "../../public/countries.json";
+// import countriesData from "../../public/countries.json";
+
 export default {
     name: "CountryList",
     data() {
         return {
-            countries: countriesData,
+            // countries: countriesData,
+            countries: null,
+            url: "https://ih-countries-api.herokuapp.com/countries",
         };
     },
+    methods: {},
+
+    async created() {
+        try {
+            const response = await fetch(this.url);
+            const res = await response.json();
+            console.log(res);
+            this.countries = res;
+        } catch (e) {
+            error.value = e;
+        }
+    },
+
     mounted() {
         // console.log(this.countries[0].alpha2Code);
     },
