@@ -11,17 +11,18 @@
                     v-for="(item, idx) in this.countries"
                     :key="idx"
                 >
-                    <a
+                    <router-link
                         class="list-group-item list-group-item-action"
-                        href="/AND"
+                        :to="`${item.alpha3Code}`"
                     >
                         <img
-                            src="https://flagpedia.net/data/flags/icon/72x54/{{item.alpha2Code}}.png"
+                            :src="`https://flagpedia.net/data/flags/icon/72x54/${item.alpha2Code.toLowerCase()}.png`"
                         />
                         <p>{{ item.name.common }}</p>
-                    </a>
+                    </router-link>
                 </div>
             </div>
+            <router-view />
         </div>
     </div>
 </template>
@@ -36,7 +37,7 @@ export default {
         };
     },
     mounted() {
-        console.log(this.countries[0].alpha2Code);
+        // console.log(this.countries[0].alpha2Code);
     },
 };
 </script>

@@ -10,29 +10,15 @@ const routes = [
     {
         path: '/',
         name: 'root',
-        component: () => import(/* webpackChunkName: 'list' */ '../components/CountriesList.vue')
+        component: () => import(/* webpackChunkName: 'list' */ '../components/CountriesList.vue'),
+        children: [
+            {
+                path: '/details',
+                name: 'details',
+                component: () => import(/* webpackChunkName: 'details' */ '../components/CountryDetails.vue')
+            },
+        ],
     },
-
-
-    // const routes = [
-    //     {
-    //         path: '/',
-    //         name: 'root',
-    //         component: () => import(/* webpackChunkName: 'index' */ '../components/Navbar.vue')
-    //     },
-    //     {
-    //         path: '/list',
-    //         name: 'list',
-    //         component: () => import(/* webpackChunkName: 'list' */ '../components/CountriesList.vue'),
-    //     children: [
-    //         {
-    //             path: '/details',
-    //             name: 'details',
-    //             component: () => import(/* webpackChunkName: 'details' */ './pages/CountriesDetails.vue')
-    //         },
-    //     ]
-    // }
-
 ];
 
 const router = createRouter({

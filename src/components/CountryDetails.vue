@@ -36,6 +36,7 @@
             </tbody>
         </table>
     </div>
+    <router-view />
 </template>
 
 <script>
