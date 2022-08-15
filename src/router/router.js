@@ -13,7 +13,7 @@ const routes = [
         component: () => import(/* webpackChunkName: 'list' */ '../components/CountriesList.vue'),
         children: [
             {
-                path: '/details',
+                path: '/:id',
                 name: 'details',
                 component: () => import(/* webpackChunkName: 'details' */ '../components/CountryDetails.vue')
             },
