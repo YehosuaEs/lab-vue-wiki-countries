@@ -23,7 +23,7 @@
                     </router-link>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-7">
                 <!-- <CountriesDetails /> -->
                 <router-view />
             </div>
