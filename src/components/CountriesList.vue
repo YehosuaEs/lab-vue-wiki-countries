@@ -49,19 +49,20 @@ export default {
     },
     methods: {
         async fetchCountries() {
-            // try {
-            const response = await fetch(this.url);
-            const finalResponse = await response.json();
-            // console.log(finalResponse);
-            this.countries = finalResponse.sort((a, b) =>
-                a.name.official.localeCompare(b.name.official)
-            );
-            // } catch (err) {
-            //     console.log(err);
-            //     console.log(error.name === "AbortError");
-            // } finally {
-            //     console.log(`finally loading after try{{} and catch}`);
-            // }
+            try {
+                const response = await fetch(this.url);
+                const finalResponse = await response.json();
+                // console.log(finalResponse);
+                this.countries = finalResponse.sort((a, b) =>
+                    a.name.official.localeCompare(b.name.official)
+                );
+            } catch (err) {
+                console.log(err.name + " in Country List");
+            } finally {
+                console.log(
+                    `finally loading after try{{} and catch} in Countries List`
+                );
+            }
         },
     },
 

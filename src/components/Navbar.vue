@@ -1,7 +1,7 @@
 <template>
     <!-- Displaying the basic navbar with the LAB name -->
     <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-primary mb-3">
+    <nav class="navbar navbar-dark bg-success mb-3">
         <div class="container">
             <router-link class="navbar-brand" to="/">
                 LAB - WikiCountries-HOME
