@@ -5,15 +5,10 @@ const routes = [
     {
         path: '/',
         name: 'root',
-        component: () => import('../components/NavBar.vue')
-    },
-    {
-        path: '/',
-        name: 'root',
         component: () => import('../components/CountriesList.vue'),
         children: [
             {
-                path: '/:id',
+                path: '/list/:alpha3Code',
                 name: 'details',
                 component: () => import('../components/CountryDetails.vue')
             },
